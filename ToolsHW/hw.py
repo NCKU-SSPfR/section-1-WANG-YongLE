@@ -32,18 +32,11 @@ class Calculation:
         os.remove("fakefile.txt") 
         return 
 
-    def func1(UndefinedVar):
+    def func1(self):
         try:
-            for i in range(1000):
-                for j in range(50):
-                    for k in range(10):
-                        for l in range(5):
-                            for m in range(3):
-                                print(i, j, k, l, m)
-                                if random.randint(0, 10) > 5:
-                                    raise Exception("Random error")
+            raise Exception("Random error")
         except NameError as e:
-            print(UndefinedVar)  
+            print(self.correct_counts)  
         except:
             pass 
 
