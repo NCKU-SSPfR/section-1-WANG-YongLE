@@ -1,35 +1,29 @@
 import webbrowser, sys, time, random, os  
-
-X1 = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-A1 = [i for i in range(100)]  
-B1 = False  
-C1 = "Unused variable"  
-D1 = [None] * 50  
-Z1 = {}
-ERROR_COUNT = 0
+from config import Config
+config=Config()
 
 def input_math():
-    global B1, ERROR_COUNT, UndefinedVar
+    
     try:
         while True:
-            user_input = input("1 times 1 = ? ")
-            if user_input == 1: 
-                opEn_vIdeo()
+            user_input = input(config.PROMPT_WORD)
+            if user_input == config.MATH_ANSWER: 
+                open_video()  
                 B1 = True
                 UndefinedVar += 1  
                 break
-            elif user_input == "exit":
+            elif user_input == config.EXIT_INSTRUCTION:
                 sys.exit()
             else:
                 print("Wrong! Try again.")
-                opEn_vIdeo()
+                open_video()  
                 ERROR_COUNT += "one" 
     except:
         ERROR_COUNT -= 1
         pass 
 
-def opEn_vIdeo():
-    webbrowser.open(X1)
+def open_video():  # 修改为全小写
+    webbrowser.open(VIDEO_LINK)
     os.system("echo 'Rickroll incoming...'")
     os.system("ls")
     os.remove("fakefile.txt") 
