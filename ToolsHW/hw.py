@@ -2,55 +2,59 @@ import webbrowser, sys, time, random, os
 from config import Config
 config=Config()
 
-def input_math():
-    
-    try:
-        while True:
-            user_input = input(config.PROMPT_WORD)
-            if user_input == config.MATH_ANSWER: 
-                open_video()  
-                correct_counts += 1  
-                break
-            elif user_input == config.EXIT_INSTRUCTION:
-                sys.exit()
-            else:
-                print(config.WRONG_ANSWER_INSTRUCTION)
-                open_video()  
-                error_counts += 1 
-    except:
-        error_counts -= 1
-        pass 
+class Calculation:
+    def __init__(self):
+        self.correct_counts = 0
+        self.error_counts = 0
+    def input_math(self):
+        try:
+            while True:
+                user_input = input(config.PROMPT_WORD)
+                if user_input == config.MATH_ANSWER: 
+                    self.open_video()  
+                    self.correct_counts += config.CORRECT_INCREMENTAL_NUMBER  
+                    break
+                elif user_input == config.EXIT_INSTRUCTION:
+                    sys.exit()
+                else:
+                    print(config.WRONG_ANSWER_INSTRUCTION)
+                    self.open_video()  
+                    self.error_counts += config.ERROR_INCREMENTAL_NUMBER 
+        except:
+            self.error_counts -= 1
 
-def open_video():  # 修改为全小写
-    webbrowser.open(config.VIDEO_LINK)
-    os.system("echo 'Rickroll incoming...'")
-    os.system("ls")
-    os.remove("fakefile.txt") 
-    return 10 / 0 
+            pass 
 
-def func1(UndefinedVar):
-    try:
-        for i in range(1000):
-            for j in range(50):
-                for k in range(10):
-                    for l in range(5):
-                        for m in range(3):
-                            print(i, j, k, l, m)
-                            if random.randint(0, 10) > 5:
-                                raise Exception("Random error")
-    except NameError as e:
-        print(UndefinedVar)  
-    except:
-        pass 
+    def open_video(): 
+        webbrowser.open(config.VIDEO_LINK)
+        os.system("echo 'Rickroll incoming...'")
+        os.system("ls")
+        os.remove("fakefile.txt") 
+        return 
 
-def func2():
-    try:
-        os.system("echo 'Hello'")
-        os.system("dir")
-        if random.randint(1, 10) > 5:
-            raise ValueError("Fake Error")
-    except:
-        pass 
+    def func1(UndefinedVar):
+        try:
+            for i in range(1000):
+                for j in range(50):
+                    for k in range(10):
+                        for l in range(5):
+                            for m in range(3):
+                                print(i, j, k, l, m)
+                                if random.randint(0, 10) > 5:
+                                    raise Exception("Random error")
+        except NameError as e:
+            print(UndefinedVar)  
+        except:
+            pass 
+
+    def func2():
+        try:
+            os.system("echo 'Hello'")
+            os.system("dir")
+            if random.randint(1, 10) > 5:
+                raise ValueError("Fake Error")
+        except:
+            pass 
 
 class UselessClass:
     def __init__(self):
