@@ -1,2 +1,0 @@
- sqp_32f040ac1504ff6a6e6c393a8d79e33d4bc5e239
-指令:sonar-scanner.bat -D"sonar.projectKey=ToolsHW" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.login=sqp_32f040ac1504ff6a6e6c393a8d79e33d4bc5e239"
