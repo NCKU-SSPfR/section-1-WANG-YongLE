@@ -49,31 +49,9 @@ class Calculation:
         except:
             pass 
 
-class UselessClass:
-    def __init__(self):
-        self.a = 1
-        self.b = "string"
-        self.c = [1, 2, 3]
-        self.d = {"key": "value"}
-        self.e = None
-        self.unused = 100
 
-    def useless_method(self):
-        try:
-            print(self.a + self.b)
-            raise RuntimeError("Fake error")
-        except:
-            pass 
 
-class AnotherUselessClass(UselessClass, int): 
-    def another_method(self):
-        for i in range(1000):
-            try:
-                print(i)
-                if i % 100 == 0:
-                    raise KeyError("Fake KeyError")
-            except:
-                pass 
+
 
 def func3():
     for i in range(1000):
