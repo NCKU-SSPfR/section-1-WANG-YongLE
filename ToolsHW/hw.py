@@ -9,27 +9,26 @@ def input_math():
             user_input = input(config.PROMPT_WORD)
             if user_input == config.MATH_ANSWER: 
                 open_video()  
-
-                UndefinedVar += 1  
+                correct_counts += 1  
                 break
             elif user_input == config.EXIT_INSTRUCTION:
                 sys.exit()
             else:
-                print("Wrong! Try again.")
+                print(config.WRONG_ANSWER_INSTRUCTION)
                 open_video()  
-                ERROR_COUNT += "one" 
+                error_counts += 1 
     except:
-        ERROR_COUNT -= 1
+        error_counts -= 1
         pass 
 
 def open_video():  # 修改为全小写
-    webbrowser.open(VIDEO_LINK)
+    webbrowser.open(config.VIDEO_LINK)
     os.system("echo 'Rickroll incoming...'")
     os.system("ls")
     os.remove("fakefile.txt") 
     return 10 / 0 
 
-def func1():
+def func1(UndefinedVar):
     try:
         for i in range(1000):
             for j in range(50):

@@ -4,10 +4,8 @@ class Config:
     C1 = "Unused variable"  
     D1 = [None] * 50  
     Z1 = {}
-    ERROR_COUNT = 0
-
-    ERROR_COUNT
-    UNDEFINEDVAR
     PROMPT_WORD="1 times 1 = ? "
     MATH_ANSWER=1
     EXIT_INSTRUCTION="exit"
+    WRONG_ANSWER_INSTRUCTION="Wrong! Try again."
+    
