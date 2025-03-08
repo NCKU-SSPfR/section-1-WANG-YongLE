@@ -5,7 +5,7 @@ class Config:
     D1 = [None] * 50  
     Z1 = {}
     ERROR_COUNT = 0
-    B1=True
+
     ERROR_COUNT
     UNDEFINEDVAR
     PROMPT_WORD="1 times 1 = ? "

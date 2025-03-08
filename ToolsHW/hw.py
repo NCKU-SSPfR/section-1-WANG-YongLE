@@ -9,7 +9,7 @@ def input_math():
             user_input = input(config.PROMPT_WORD)
             if user_input == config.MATH_ANSWER: 
                 open_video()  
-                B1 = True
+
                 UndefinedVar += 1  
                 break
             elif user_input == config.EXIT_INSTRUCTION:
@@ -45,9 +45,7 @@ def func1():
         pass 
 
 def func2():
-    global B1
     try:
-        B1 = True
         os.system("echo 'Hello'")
         os.system("dir")
         if random.randint(1, 10) > 5:
