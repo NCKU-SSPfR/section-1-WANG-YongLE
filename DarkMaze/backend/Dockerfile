@@ -19,4 +19,4 @@ EXPOSE 8000
 # 設定環境變數（此處可根據需要添加環境變數）
 
 # 启动应用，使用 uvicorn 啟動 FastAPI 應用
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
