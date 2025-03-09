@@ -4,7 +4,7 @@ from fastapi.responses import JSONResponse
 from .cookie import CookieManager
 from fastapi import APIRouter
 from ..database.operation import create_user  # 确保导入create_user函数
-from config import Config
+from ..config import Config
 cookieManager = CookieManager()
 config=Config()
 router = APIRouter(

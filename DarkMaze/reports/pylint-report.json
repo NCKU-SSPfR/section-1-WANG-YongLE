@@ -1,6 +1,58 @@
 [
     {
         "type": "convention",
+        "module": "src.config",
+        "obj": "",
+        "line": 7,
+        "column": 0,
+        "endLine": null,
+        "endColumn": null,
+        "path": "/usr/src/src/config.py",
+        "symbol": "missing-final-newline",
+        "message": "Final newline missing",
+        "message-id": "C0304"
+    },
+    {
+        "type": "convention",
+        "module": "src.config",
+        "obj": "",
+        "line": 1,
+        "column": 0,
+        "endLine": null,
+        "endColumn": null,
+        "path": "/usr/src/src/config.py",
+        "symbol": "missing-module-docstring",
+        "message": "Missing module docstring",
+        "message-id": "C0114"
+    },
+    {
+        "type": "convention",
+        "module": "src.config",
+        "obj": "Config",
+        "line": 1,
+        "column": 0,
+        "endLine": 1,
+        "endColumn": 12,
+        "path": "/usr/src/src/config.py",
+        "symbol": "missing-class-docstring",
+        "message": "Missing class docstring",
+        "message-id": "C0115"
+    },
+    {
+        "type": "refactor",
+        "module": "src.config",
+        "obj": "Config",
+        "line": 1,
+        "column": 0,
+        "endLine": 1,
+        "endColumn": 12,
+        "path": "/usr/src/src/config.py",
+        "symbol": "too-few-public-methods",
+        "message": "Too few public methods (0/2)",
+        "message-id": "R0903"
+    },
+    {
+        "type": "convention",
         "module": "src.main",
         "obj": "",
         "line": 15,
