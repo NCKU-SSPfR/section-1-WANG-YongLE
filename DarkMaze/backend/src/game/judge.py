@@ -6,10 +6,10 @@ def _parse_map(map_string, map_size, reversal_nodes=[]):
     width, height = map_size
     filtered_chars = re.sub(r'[^a-zA-Z]', '', map_string)
     
-    QQ = [bin(ord(c))[2:].zfill(8) for c in filtered_chars]
+    binary_chars = [bin(ord(c))[2:].zfill(8) for c in filtered_chars]
     
     Dora_friend = []
-    for Q in QQ:
+    for Q in binary_chars:
         first_half = int(Q[:4], 2)
         second_half = int(Q[4:], 2)
         Dora_friend.extend([first_half % 2, second_half % 2])

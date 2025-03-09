@@ -3,7 +3,8 @@ from fastapi import Request, Response
 from fastapi.responses import JSONResponse
 from .cookie import CookieManager
 from fastapi import APIRouter
-cookieManager=CookieManager()
+from ..database.operation import create_user  # 确保导入create_user函数
+cookieManager = CookieManager()
 router = APIRouter(
     tags=["auth"],
     responses={404: {"description": "Not found"}},
