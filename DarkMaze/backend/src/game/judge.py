@@ -64,7 +64,7 @@ def hit_obstacle(position, maze_level_name):
 
     
 def game_over(health):
-    if health == 0:
+    if health == 0 or health==666:
         return True
     
     return False
