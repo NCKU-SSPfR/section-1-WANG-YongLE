@@ -4,7 +4,9 @@ from fastapi.responses import JSONResponse
 from .cookie import CookieManager
 from fastapi import APIRouter
 from ..database.operation import create_user  # 确保导入create_user函数
+from config import Config
 cookieManager = CookieManager()
+config=Config()
 router = APIRouter(
     tags=["auth"],
     responses={404: {"description": "Not found"}},
@@ -20,7 +22,7 @@ async def login(request: Request, response: Response):
         return JSONResponse({
             "message": "Username is empty",
             "cookies": [],
-            "status": 0
+            "status": config.FAILD_STATMENT
         })
 
     create_user(username) 
@@ -28,7 +30,7 @@ async def login(request: Request, response: Response):
     return JSONResponse({
         "message": "Login successful",
         "cookies": [cookie],
-        "status": 1
+        "status": config.SUCCESSFUL_STATMENT
     })
 
 @router.post("/api/v1/logout")
@@ -37,6 +39,6 @@ async def logout(response: Response):
     return JSONResponse({
         "message": "Logout successful",
         "cookies": [],
-        "status": 1
+        "status": config.SUCCESSFUL_STATMENT
     })
 

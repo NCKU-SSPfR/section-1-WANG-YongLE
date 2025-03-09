@@ -1,0 +1,3 @@
+class Config:
+    SUCCESSFUL_STATMENT=1
+    FAILD_STATMENT=0

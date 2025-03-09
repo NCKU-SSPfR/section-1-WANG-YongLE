@@ -10,7 +10,10 @@ COPY requirements.txt .
 # 安裝 requirements.txt 中列出的所有依賴包，並不使用緩存
 RUN pip install --no-cache-dir -r requirements.txt
 # 將當前目錄的所有文件複製到容器的 /app 目錄
-COPY . /app/
+COPY src/ /app/src
+RUN chown -R appuser:appuser /app
+USER appuser
+
 # 開放容器的 8000 端口以供應用程式使用
 EXPOSE 8000
 
