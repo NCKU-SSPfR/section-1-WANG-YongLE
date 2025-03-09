@@ -1,4 +1,4 @@
-from fastapi import Request, HTTPException
+from fastapi import Request, HTTPException,Response
 from fastapi.responses import JSONResponse
 from fastapi import APIRouter
 from .operation import get_latest_game_state, move_location, reset_game_state  
@@ -7,6 +7,7 @@ router = APIRouter(
     tags=["game"],
     responses={404: {"description": "Not found"}},
 )
+
 @router.get("/api/v1/maze")
 async def get_maze(username: str):
     """获取当前迷宫数据"""
@@ -32,7 +33,7 @@ async def move(request: Request):
     return JSONResponse(game_state)
 
 @router.get("/api/v1/reset")
-async def reset_game(username: str):
+async def reset_game(response: Response,username: str):
     """Reset game state"""
     reset_game_state(username)
     return JSONResponse(get_latest_game_state(username))
