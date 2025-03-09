@@ -535,6 +535,19 @@
     {
         "type": "convention",
         "module": "tests.test_game_over",
+        "obj": "test_game_over_0",
+        "line": 4,
+        "column": 11,
+        "endLine": 4,
+        "endColumn": 31,
+        "path": "/usr/src/tests/test_game_over.py",
+        "symbol": "singleton-comparison",
+        "message": "Comparison 'game_over(0) == True' should be 'game_over(0) is True' if checking for the singleton value True, or 'game_over(0)' if testing for truthiness",
+        "message-id": "C0121"
+    },
+    {
+        "type": "convention",
+        "module": "tests.test_game_over",
         "obj": "test_game_over_666",
         "line": 6,
         "column": 0,
@@ -544,6 +557,19 @@
         "symbol": "missing-function-docstring",
         "message": "Missing function or method docstring",
         "message-id": "C0116"
+    },
+    {
+        "type": "convention",
+        "module": "tests.test_game_over",
+        "obj": "test_game_over_666",
+        "line": 7,
+        "column": 11,
+        "endLine": 7,
+        "endColumn": 33,
+        "path": "/usr/src/tests/test_game_over.py",
+        "symbol": "singleton-comparison",
+        "message": "Comparison 'game_over(666) == True' should be 'game_over(666) is True' if checking for the singleton value True, or 'game_over(666)' if testing for truthiness",
+        "message-id": "C0121"
     },
     {
         "type": "convention",
@@ -559,17 +585,17 @@
         "message-id": "C0116"
     },
     {
-        "type": "warning",
+        "type": "convention",
         "module": "tests.test_game_over",
-        "obj": "",
-        "line": 1,
-        "column": 0,
-        "endLine": 1,
+        "obj": "test_game_over_other",
+        "line": 10,
+        "column": 11,
+        "endLine": 10,
         "endColumn": 32,
         "path": "/usr/src/tests/test_game_over.py",
-        "symbol": "unused-import",
-        "message": "Unused game_over imported from judge_code",
-        "message-id": "W0611"
+        "symbol": "singleton-comparison",
+        "message": "Comparison 'game_over(1) == False' should be 'game_over(1) is False' if checking for the singleton value False, or 'not game_over(1)' if testing for falsiness",
+        "message-id": "C0121"
     },
     {
         "type": "convention",
