@@ -1,8 +1,8 @@
 from fastapi import Request, HTTPException,Response
 from fastapi.responses import JSONResponse
 from fastapi import APIRouter
-from .operation import get_latest_game_state, move_location, reset_game_state  
-
+from .operation import  move_location
+from ..database.operation import get_latest_game_state, reset_game_state
 router = APIRouter(
     tags=["game"],
     responses={404: {"description": "Not found"}},
