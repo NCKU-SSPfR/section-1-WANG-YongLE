@@ -92,4 +92,4 @@ services:
       - sonar-network
 networks:
   sonar-network:
-    driver: bridge
+
