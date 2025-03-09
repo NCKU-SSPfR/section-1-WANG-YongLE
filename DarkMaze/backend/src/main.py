@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .database.initialize import initialize
 from .database.operation import create_user, get_latest_game_state, reset_game_state
 from .game.operation import move_location
-
+import uvicorn
 app = FastAPI()
 initialize()
 
@@ -91,5 +91,5 @@ async def logout(response: Response):
     })
 
 if __name__ == "__main__":
-    import uvicorn
+    
     uvicorn.run(app, host="0.0.0.0", port=8000)
