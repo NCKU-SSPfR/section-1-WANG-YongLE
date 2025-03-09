@@ -12,7 +12,7 @@ services:
   
   sonarqube:
     image: sonarqube:lts-community
-    container_name: sonarqube
+    container_name: my-sonarqube
     ports:
       - "9000:9000"
     environment:
@@ -20,6 +20,7 @@ services:
       - SONAR_JDBC_USERNAME=sonar
       - SONAR_JDBC_PASSWORD=sonar
       - SONAR_FORCE_BUILTIN_PLUGINS=false
+      
     networks:
       - sonar-network
     depends_on:
@@ -36,7 +37,7 @@ services:
       pip3 install --no-cache-dir pylint flake8 &&
       mkdir -p /reports &&
       pylint --output-format=json /usr/src/**/*.py > /reports/pylint-report.json || true &&
-      flake8 --format=json /usr/src > /reports/flake8-report.json || true
+      flake8 --format=json /usr/src > /reports/flake8-report.json || true"
 
   sonar-scanner:
     image: sonarsource/sonar-scanner-cli
@@ -44,6 +45,7 @@ services:
       - sonarqube
     environment:
       - SONAR_HOST_URL=http://sonarqube:9000
+      
     volumes:
       - ./backend:/usr/src
       - ./reports:/reports
@@ -72,9 +74,9 @@ services:
       - "8088:8088"
     volumes:
       - ./frontend:/app
-      - /app/node_modules
     command: uvicorn src.main:app --host "0.0.0.0" --port 8088 --reload
-
+    networks:
+      - sonar-network
   backend:
     # TODO:
     # 1. Create a container using the backend image.  
@@ -86,6 +88,8 @@ services:
     volumes:
       - ./backend:/app
     command: uvicorn src.main:app --host "0.0.0.0" --port 8000 --reload
-
+    networks:
+      - sonar-network
 networks:
   sonar-network:
+    driver: bridge
