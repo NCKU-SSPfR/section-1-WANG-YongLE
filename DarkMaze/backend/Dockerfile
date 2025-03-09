@@ -2,7 +2,6 @@
 FROM python:3.11
 
 RUN useradd -m appuser
-# 設定工作目錄為 /app
 WORKDIR /app
 
 COPY requirements.txt .
@@ -10,11 +9,10 @@ COPY requirements.txt .
 # 安裝 requirements.txt 中列出的所有依賴包，並不使用緩存
 RUN pip install --no-cache-dir -r requirements.txt
 # 將當前目錄的所有文件複製到容器的 /app 目錄
-COPY src/ /app/src
 RUN chown -R appuser:appuser /app
 USER appuser
+COPY src/ /app/src
 
-# 開放容器的 8000 端口以供應用程式使用
 EXPOSE 8000
 
 # 設定環境變數（此處可根據需要添加環境變數）
