@@ -23,7 +23,8 @@ async def reset_request():
     async with httpx.AsyncClient() as client:
         response = await client.get(RESET_URL)
 
-    assert response.status_code == 200  # Ensure the request was successful
+    assert response.status_code == 200 
+    global game_state  # 声明使用全局变量
     game_state = response.json()
     assert game_state["current_position"] == [1, 0]
 
@@ -36,6 +37,7 @@ async def move_request(dir):
         response = await client.post(MOVE_URL, json=payload)
 
     assert response.status_code == 200  # Ensure the request was successful
+    global game_state  # 声明使用全局变量
     game_state = response.json()
     assert game_state["health"] >= 3
 
