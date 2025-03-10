@@ -56,7 +56,11 @@ async def test_integration():
 async def test_solver():
     await login_request()
     await reset_request()
-    for i in range(5):
-        await move_request("down")
+    answer=["down","down","down","down","down",
+            "right","down","right","right",
+            "up","up","up","up","right","right",
+            "down","right","right","down","right","down"]
+    for D in answer:
+        await move_request(D)
     #print(game_state)
     assert game_state["health"] == 666
