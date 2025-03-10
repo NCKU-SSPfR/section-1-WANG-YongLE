@@ -9,6 +9,7 @@ COPY requirements.txt .
 # 安裝 requirements.txt 中列出的所有依賴包，並不使用緩存
 RUN pip install --no-cache-dir -r requirements.txt
 COPY src/ /app/src
+COPY tests/ /app/tests
 # 將當前目錄的所有文件複製到容器的 /app 目錄
 RUN chown -R appuser:appuser /app
 USER appuser
